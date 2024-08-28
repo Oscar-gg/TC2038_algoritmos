@@ -6,6 +6,7 @@
  
 using namespace std;
 
+// Funcion para hashear una string
 long long hashString(string &s){
     long long int resultado = 0;
     int p = 31, m  = 1e9 + 9;
