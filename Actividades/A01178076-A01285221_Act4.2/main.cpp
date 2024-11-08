@@ -5,6 +5,8 @@
 
 // Implementación basada en: https://cp-algorithms.com/geometry/convex-hull.html
 
+// Complejidad de operaciones O(1)
+
 #include "Point.h"
 #include "libs.h"
 
