@@ -14,6 +14,7 @@ using namespace std;
 
 Point p0;
 
+// O(1)
 bool compare(const Point &a, const Point &b)
 {
     int o = Point::orientation(p0, a, b);
@@ -22,6 +23,7 @@ bool compare(const Point &a, const Point &b)
     return o < 0;
 }
 
+// O(1)
 bool compare_pivot(const Point &a, const Point &b)
 {
     return a.getY() < b.getY() || (a.getY() == b.getY() && a.getX() < b.getX());
@@ -33,6 +35,7 @@ int main()
 
     // Leer y guardar todos los puntos.
     int x, y;
+    // O(n) - n es el número de puntos
     while (cin >> x && cin >> y)
     {
         Point next(x, y);
@@ -43,14 +46,17 @@ int main()
     bool include_collinear = false;
 
     // obtener el punto de pivote (que esta hasta abajo a la derecha)
+    // O(n) - n es el número de puntos
     p0 = *min_element(points.begin(), points.end(), compare_pivot);
 
     // Ordenar los puntos respecto al angulo con el punto de pivote
+    // O(nlogn) - n es el número de puntos
     sort(points.begin(), points.end(), compare);
 
     // Formar el convex hull
     vector<Point> st;
 
+    // O(n) - n es el número de puntos
     for (int i = 0; i < points.size(); i++)
     {
         // Mientras el siguiente punto haga un giro a la derecha, quitar el penultimo punto
@@ -66,6 +72,7 @@ int main()
 
     // Imprimir el resultado.
     // Imprimir los puntos al reves para imprimir en orden contrario al sentido de las manecillas del reloj.
+    // O(n) - n es el número de puntos
     for (int i = points.size(); i > 0; i--)
     {
         Point x = points[i % points.size()];
