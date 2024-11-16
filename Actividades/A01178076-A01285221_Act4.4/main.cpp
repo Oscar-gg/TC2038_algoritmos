@@ -58,10 +58,12 @@ int main()
     string s;
     getline(cin, s);
 
+    // O(n)
     vector<int> numbers = getNumbers(s);
 
     // Se asume que el arreglo está ordenado
     // En caso de que no esté ordenado, no funcionará el algoritmo
+    // Complejidad: O(logn). Peor caso: O(n)
     int index = randomizedBinarySearch(numbers, targetNumber);
 
     if (index >= 0)
